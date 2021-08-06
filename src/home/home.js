@@ -1,11 +1,9 @@
-import React from "react";
+import React from 'react';
 
-export default class Home extends React.Component {
-    render() {
-        return(
-            <div>
-                <h1>Homasd</h1>
-            </div>
-        );
-    }
-}
+const Home = () => (
+  <div>
+    <h1>Homasd</h1>
+  </div>
+);
+
+export default Home;

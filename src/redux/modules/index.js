@@ -1,5 +1,7 @@
-import data from "./posts";
+import data from './posts';
+import bag from './bag';
 
 export default {
-    data
+  data: data,
+  bag: bag
 };

@@ -1,20 +1,21 @@
-import React, { useEffect } from 'react';
-import { connect } from 'react-redux';
-import { getPost, GET_PRODUCT_ALL } from '../../../redux/modules/posts';
-import Product from './product';
+// import React, { useEffect } from 'react';
+// import { connect } from 'react-redux';
+// import {  getProduct } from '../../../redux/modules/posts';
+// import Product from './product';
 
-const App = ({ data, getPost }) => {
-    useEffect(() => {
-        getPost(GET_PRODUCT_ALL);
-    }, []);
-    return(
-        <Product data={data}/>
-    );
-};
+// const App = ({ bag, getProduct }) => {
+//   useEffect(() => {
+//     getProduct();
+//   }, [getProduct]);
 
-export default connect(
-    ({data}) => ({data: data.data}),
-    {
-        getPost: getPost
-    }
-)(App)
+//   return (
+//     <Product bag={bag} />
+//   );
+// };
+
+// export default connect(
+//   ({ bag }) => ({ bag: bag.bag }),
+//   {
+//     getProduct: getProduct,
+//   },
+// )(App);

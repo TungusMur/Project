@@ -1,10 +1,6 @@
-import React from "react";
-import App from "./app";
+import React from 'react';
+import App from './app';
 
-const Women = () => {
+const Women = () => <App />;
 
-    return(
-            <App/>
-    );
-};
 export default Women;

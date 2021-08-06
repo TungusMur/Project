@@ -1,32 +1,29 @@
-import React from "react";
-import Women from "./women/women";
-import Men from "./men/men";
+import React from 'react';
 import {
-    BrowserRouter as Router,
-    Switch,
-    Route,
-    Link
-  } from "react-router-dom";
-  
-export default class Nav extends React.Component{
-    render(){
-        return(
-            <div className="navigation">
-                <nav>
-                    <ul>
-                        <li>
-                            <Link to="/Women">Женщины</Link>
-                        </li>
-                        <li>
-                            <Link to="/Men">Мужчины</Link>
-                        </li>
-                    </ul>
-                </nav>
-                <Switch>
-                    <Route path="/Women" component={Women}/>
-                    <Route path="/Men" component={Men}/>
-                </Switch>
-            </div> 
-        );
-    }
-}
+  Link,
+  Route,
+  Switch,
+} from 'react-router-dom';
+import Women from './women/women';
+import Men from './men/men';
+
+const Nav = () => (
+    <div className="navigation">
+      <nav>
+        <ul>
+          <li>
+            <Link to="/Women">Женщины</Link>
+          </li>
+          <li>
+            <Link to="/Men">Мужчины</Link>
+          </li>
+        </ul>
+      </nav>
+      <Switch>
+        <Route component={ Women } path="/Women" />
+        <Route component={ Men } path="/Men" />
+      </Switch>
+    </div>
+);
+
+export default Nav;

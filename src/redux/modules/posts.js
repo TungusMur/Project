@@ -1,31 +1,59 @@
-import { product } from '../../data';
+import axios from 'axios';
 
-export const GET_PRODUCT_WOMEN = 'GET_PRODUCT_WOMEN';
-export const GET_PRODUCT_MEN = 'GET_PRODUCT_MEN';
-export const GET_PRODUCT_ALL = 'GET_PRODUCT_ALL';
-
+const GET_PRODUCT_REQUEST = 'GET_PRODUCT_REQUEST';
+const GET_PRODUCT_SUCCESS = 'GET_PRODUCT_SUCCESS';
 
 const defaultState = {
-    data: []
+  data: [],
+  loading: false
 };
 
-export default (state = defaultState, {type, payload}) => {
-    switch (type) {
-        case GET_PRODUCT_WOMEN:
-            return {...state, data: payload.filter(item => (item.option === "women"))};
-        case GET_PRODUCT_MEN:
-            return {...state, data: payload.filter(item => (item.option === "men"))};
-        case GET_PRODUCT_ALL:
-            return {...state, data: payload};
-        default: 
-            return state;
-    };
+export default (state = defaultState, { type, payload }) => {
+  switch (type) {
+    case GET_PRODUCT_REQUEST:
+      return{
+        ...state,
+        data: [],
+        loading: true
+      };
+    case GET_PRODUCT_SUCCESS:
+      return{
+        ...state,
+        loading: false,
+        data: payload
+      };
+    default:
+      return state;
+  }
 };
 
-export const getPost = (GET_PRODUCT) => (dispatch) => {
-    try{
-        dispatch({type: GET_PRODUCT, payload: product});
-    } catch(error) {
-        console.log(error);
-    };
+export const getProduct = (productType) => (dispatch) => {
+  dispatch({ type: GET_PRODUCT_REQUEST });
+  axios.get('./db.json')
+    .then((res) => {
+      if (productType === 'MEN') {
+        dispatch({ type: GET_PRODUCT_SUCCESS, payload: res.data.filter((item) => item.option === 'men') })
+      } else if(productType === 'WOMEN')  {
+        dispatch({ type: GET_PRODUCT_SUCCESS, payload: res.data.filter((item) => item.option === 'women') })
+      }
+    });
+    // .catch((error) => dispatch({ type: GET_PRODUCT_FAILURE, payload: error }));
+  
+  // await axios.get('http://localhost:3001/data').then((res) => { dispatch({ type: GET_PRODUCT, payload: res.data }); });
+  // только перед тем как использовать выше закомментированный метод пропишите в консоле npm run db
 };
+    // case GET_PRODUCT_WOMEN:
+    //   return {
+    //     ...state,
+    //     data: payload.filter((item) => item.option === 'women'),
+    //   };
+    // case GET_PRODUCT_MEN:
+    //   return {
+    //     ...state,
+    //     data: payload.filter((item) => item.option === 'men'),
+    //   };
+    // case GET_PRODUCT_ALL:
+    //   return {
+    //     ...state,
+    //     data: payload,
+    //   };
