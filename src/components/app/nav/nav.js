@@ -4,8 +4,8 @@ import {
   Route,
   Switch,
 } from 'react-router-dom';
-import Women from './women/women';
-import Men from './men/men';
+import Women from './women/womenSection';
+import Men from './men/menSection';
 
 const Nav = () => (
     <div className="navigation">

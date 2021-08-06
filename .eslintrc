@@ -2,15 +2,19 @@
     "plugins": [
         "jsx-a11y"
     ],
-    // "extends": [
-    //     "react-app",       
-    //     "esnext", 
-    //     "esnext/style-guide", 
-    //     "node", 
-    //     "node/style-guide",
-    //     "plugin:jsx-a11y/recommended",
-    //     "eslint:recommended",
-    //     "prettier",
-    //     "airbnb-base"
-    // ]
+    "rules": {
+        "no-param-reassign": 0
+    },
+    "extends": [
+        "react-app",       
+        "esnext", 
+        "esnext/style-guide", 
+        "node", 
+        "node/style-guide",
+        "plugin:jsx-a11y/recommended",
+        "eslint:recommended",
+        "prettier",
+        "airbnb-base"
+    ],
+    
 }
