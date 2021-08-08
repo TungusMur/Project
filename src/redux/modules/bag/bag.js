@@ -1,6 +1,8 @@
 import checkingBag from './checkingBag';
+import settingQuantity from './settingQuantity';
 
 export const ADD_PRODUCT_IN_BAG = 'ADD_PRODUCT_IN_BAG';
+export const SETTING_QUANTITY = 'SETTING_QUANTITY';
 const GET_PRODUCT_REQUEST = 'GET_BAG_REQUEST';
 
 const defaultStateBag = {
@@ -21,6 +23,12 @@ export default (state = defaultStateBag, { type, payload }) => {
         ...state,
         bag: state.bag,
         loading: true,
+      };
+    case SETTING_QUANTITY:
+      return {
+        ...state,
+        bag: settingQuantity(state, payload),
+        loading: false,
       };
     default:
       return state;

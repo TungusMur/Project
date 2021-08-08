@@ -4,7 +4,7 @@
         "id": 1,
         "img": "https://umex.ru/upload/iblock/856/856772cbfecc3a81d1d4ad2976a3c9c7.jpg",
         "name": "Модные трусы",
-        "price": 1000,
+        "price": 5000,
         "category": "accessories",
         "option": "men"
       },
@@ -44,7 +44,7 @@
         "id": 2,
         "img": "https://storage.vsemayki.ru/images/0/0/719/719647/previews/people_1_skirt_sun_front_white_500.jpg",
         "name": "Юбка - мясо",
-        "price": 1000,
+        "price": 2200,
         "category": "clothes",
         "option": "women"
       },
