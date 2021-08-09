@@ -1,13 +1,6 @@
 const checkingBag = (state, payload) => {
   const newProduct = payload;
   const oldState = state;
-  if (oldState === []) {
-    newProduct.quantity = 1;
-    oldState.bag.push({ product: newProduct });
-    return (
-      oldState.bag
-    );
-  }
 
   let check = true;
   oldState.bag.forEach((item) => {
