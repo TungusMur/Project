@@ -1,9 +1,10 @@
 import checkingBag from './checkingBag';
-import settingQuantity from './settingQuantity';
+import increaseQuantity from './increaseQuantity';
+import decreaseQuantity from './decreaseQuantity ';
 
 export const ADD_PRODUCT_IN_BAG = 'ADD_PRODUCT_IN_BAG';
-export const SETTING_QUANTITY = 'SETTING_QUANTITY';
-const GET_PRODUCT_REQUEST = 'GET_BAG_REQUEST';
+export const INCREASE_QUANTITY = 'INCREASE_QUANTITY';
+export const DECREASE_QUANTITY = 'DECREASE_QUANTITY';
 
 const defaultStateBag = {
   bag: [],
@@ -15,19 +16,19 @@ export default (state = defaultStateBag, { type, payload }) => {
     case ADD_PRODUCT_IN_BAG:
       return {
         ...state,
-        bag: checkingBag(state, payload),
+        bag: [...checkingBag(state, payload)],
         loading: false,
       };
-    case GET_PRODUCT_REQUEST:
+    case INCREASE_QUANTITY:
       return {
         ...state,
-        bag: state.bag,
-        loading: true,
+        bag: [...increaseQuantity(state, payload)],
+        loading: false,
       };
-    case SETTING_QUANTITY:
+    case DECREASE_QUANTITY:
       return {
         ...state,
-        bag: settingQuantity(state, payload),
+        bag: [...decreaseQuantity(state, payload)],
         loading: false,
       };
     default:
@@ -35,7 +36,6 @@ export default (state = defaultStateBag, { type, payload }) => {
   }
 };
 
-export const addInBag = (actionType, product) => (dispatch) => {
-  dispatch({ type: GET_PRODUCT_REQUEST, payload: [] });
+export const actionBag = (actionType, product) => (dispatch) => {
   dispatch({ type: actionType, payload: product });
 };

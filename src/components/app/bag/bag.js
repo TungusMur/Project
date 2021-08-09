@@ -2,9 +2,9 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import ProductInformation from './productInformation';
-import { addInBag, SETTING_QUANTITY } from '../../../redux/modules/bag/bag';
+import { actionBag, INCREASE_QUANTITY, DECREASE_QUANTITY } from '../../../redux/modules/bag/bag';
 
-const Bag = ({ bag, actionBag }) => {
+const Bag = ({ bag, action }) => {
   let productQuantity = 0;
   let finalPrice = 0;
   bag.forEach((item) => {
@@ -13,14 +13,15 @@ const Bag = ({ bag, actionBag }) => {
   });
   let information = '';
   if (bag.length === 0) {
-    information = 'корзина пустая';
+    information = 'Корзина пустая';
   }
   return (
     <div className="bag">
       <h1>{information}</h1>
       {bag.map((item) => (
         <ProductInformation key={item.product.id + item.product.option} product={item.product}
-        actionBag={(e) => actionBag(SETTING_QUANTITY, e)}/>
+        decreaseQuantity ={(e) => action(DECREASE_QUANTITY, e)}
+        increaseQuantity ={(e) => action(INCREASE_QUANTITY, e)}/>
       ))}
       <div className="bagInformation">
         <h2>Информация о покупке</h2>
@@ -35,6 +36,6 @@ const Bag = ({ bag, actionBag }) => {
 export default connect(
   ({ bag }) => ({ bag: bag.bag }),
   {
-    actionBag: addInBag,
+    action: actionBag,
   },
 )(Bag);

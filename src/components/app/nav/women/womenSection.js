@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { getProduct } from '../../../../redux/modules/shelfOfProducts/product';
 import Post from '../../../post';
-import { addInBag, ADD_PRODUCT_IN_BAG } from '../../../../redux/modules/bag/bag';
+import { actionBag, ADD_PRODUCT_IN_BAG } from '../../../../redux/modules/bag/bag';
 
 const Women = ({ data, get, bag }) => {
   useEffect(() => {
@@ -22,6 +22,6 @@ export default connect(
   ({ data }) => ({ data: data.data }),
   {
     get: getProduct,
-    bag: addInBag,
+    bag: actionBag,
   },
 )(Women);
