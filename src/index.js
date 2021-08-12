@@ -8,10 +8,8 @@ import './index.scss';
 const store = configureStore();
 
 const Index = () => (
-  <Provider store={ store }>
-    <App/>
-  </Provider>);
-ReactDOM.render(
-  <Index />,
-  document.getElementById('root'),
+  <Provider store={store}>
+    <App />
+  </Provider>
 );
+ReactDOM.render(<Index />, document.getElementById('root'));

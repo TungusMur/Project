@@ -1,7 +1,12 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import ProductInformation from './productInformation';
-import { actionBag, INCREASE_QUANTITY, DECREASE_QUANTITY } from '../../../redux/modules/bag/bag';
+import {
+  actionBag,
+  INCREASE_QUANTITY,
+  DECREASE_QUANTITY,
+  REMOVING_PRODUCT_FROM_BAG,
+} from '../../../redux/modules/bag/bag';
 import './bag.scss';
 
 const Bag = ({ bag, action }) => {
@@ -20,9 +25,13 @@ const Bag = ({ bag, action }) => {
       <h1>{information}</h1>
       <div className="bag-volume">
         {bag.map((item) => (
-          <ProductInformation key={item.product.id + item.product.option} product={item.product}
-          decreaseQuantity ={(e) => action(DECREASE_QUANTITY, e)}
-          increaseQuantity ={(e) => action(INCREASE_QUANTITY, e)}/>
+          <ProductInformation
+            key={item.product.id + item.product.option}
+            product={item.product}
+            decreaseQuantity={(e) => action(DECREASE_QUANTITY, e)}
+            increaseQuantity={(e) => action(INCREASE_QUANTITY, e)}
+            removingProductFromBag={(e) => action(REMOVING_PRODUCT_FROM_BAG, e)}
+          />
         ))}
       </div>
       <div className="bag-information">
@@ -34,9 +43,6 @@ const Bag = ({ bag, action }) => {
   );
 };
 
-export default connect(
-  ({ bag }) => ({ bag: bag.bag }),
-  {
-    action: actionBag,
-  },
-)(Bag);
+export default connect(({ bag }) => ({ bag: bag.bag }), {
+  action: actionBag,
+})(Bag);

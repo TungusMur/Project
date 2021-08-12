@@ -7,21 +7,17 @@ import { actionBag, ADD_PRODUCT_IN_BAG } from '../../../../redux/modules/bag/bag
 const Men = ({ data, get, bag }) => {
   useEffect(() => {
     get('MEN');
-  },
-  [get]);
+  }, [get]);
   return (
     <div className="stall">
       {data.map((item) => (
-        <Post key={item.id + item.option} product={item} bag={(e) => bag(ADD_PRODUCT_IN_BAG, e)}/>
+        <Post key={item.id + item.option} product={item} bag={(e) => bag(ADD_PRODUCT_IN_BAG, e)} />
       ))}
     </div>
   );
 };
 
-export default connect(
-  ({ data }) => ({ data: data.data }),
-  {
-    get: getProduct,
-    bag: actionBag,
-  },
-)(Men);
+export default connect(({ data }) => ({ data: data.data }), {
+  get: getProduct,
+  bag: actionBag,
+})(Men);

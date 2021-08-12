@@ -3,7 +3,7 @@ const decreaseQuantity = (state, payload) => {
   const newProduct = payload;
   let check = false;
   oldState.bag.forEach((item) => {
-    if ((item.product.id === newProduct.id) && (item.product.option === newProduct.option)) {
+    if (item.product.id === newProduct.id && item.product.option === newProduct.option) {
       item.product.quantity -= 1;
       if (item.product.quantity === 0) {
         check = true;
@@ -11,10 +11,8 @@ const decreaseQuantity = (state, payload) => {
     }
   });
   if (check) {
-    oldState.bag = oldState.bag.filter((item) => item.product !== payload);
+    oldState.bag = oldState.bag.filter((item) => item.product !== newProduct);
   }
-  return (
-    oldState.bag
-  );
+  return oldState.bag;
 };
 export default decreaseQuantity;

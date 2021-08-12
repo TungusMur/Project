@@ -11,6 +11,7 @@
     }
     .bag-volume {
         .product {
+            position: relative;
             margin-bottom: 20px;
             display: flex;
             flex-direction: row;
@@ -35,7 +36,48 @@
                 .product-name {
                     font-weight: bolder;
                 }
-            } 
+                .price {
+                    .quantity-setting {
+                        display: flex;
+                        button {
+                            background-color: #ffffff;
+                            border: 4px double #7c7c7c;
+                            margin: 0 5px 0 5px;
+                            &:hover{
+                                background-color: #cccccc;
+                                border: 4px double #1b1b1b;
+                            }
+                            font-size: 15px;
+                        }
+                    }
+                }
+            }
+            .cross {
+                position: absolute;
+                right: 20px;
+                padding: 0px;
+                border: 0;
+                height: 33px;
+                width: 33px;
+                background-color: #ffffff;
+                &:hover {
+                    .line {
+                        background-color: #000000;
+                    }
+                }
+                .line {
+                    position: absolute;
+                    width: 33px;
+                    height: 4px;
+                    background-color: #7c7c7c;
+                    &:first-child {
+                        transform: rotate(45deg);
+                    }
+                    &:last-child {
+                        transform: rotate(135deg);
+                    }
+                }
+            }
         }
     }
     .bag-information {

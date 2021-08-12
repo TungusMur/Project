@@ -20,15 +20,17 @@ const Nav = () => {
   }
   return (
     <div className="navigation">
-        <ul>
-          <li>
-            <NavLink to="/Women">женщины</NavLink>
-          </li>
-          <li>
-            <NavLink to="/Men">мужчины</NavLink>
-          </li>
-        </ul>
-        <NavLink to="/Bag">КОРЗИНА<p>{String(sumPrice)}</p></NavLink>
+      <ul>
+        <li>
+          <NavLink to="/Women">женщины</NavLink>
+        </li>
+        <li>
+          <NavLink to="/Men">мужчины</NavLink>
+        </li>
+      </ul>
+      <NavLink to="/Bag">
+        КОРЗИНА<p>{String(sumPrice)}</p>
+      </NavLink>
     </div>
   );
 };

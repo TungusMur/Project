@@ -63,13 +63,5 @@
         "price": 1000,
         "category": "boots",
         "option": "women"
-      },
-      {
-        "id": 5,
-        "img": "https://ae04.alicdn.com/kf/He2cd9b4615d2452c9bd8cdfc52588a323/Lucifer-Morningstar.jpg",
-        "name": "Кеды с люцифером",
-        "price": 1000,
-        "category": "boots",
-        "option": "women"
       }
     ]
