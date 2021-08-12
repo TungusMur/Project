@@ -1,10 +1,15 @@
 import React from 'react';
+import './post.scss';
 
 const Post = ({ product, bag }) => <div className="card">
-    <h1>{ product.name }</h1>
+    <p className="name-produсt">{ product.name }</p>
     <img src={ product.img } alt={ product.img }/>
-    <p>{product.price}</p>
-    <button onClick={() => bag(product)}> Добавить в корзину</button>
-  </div>;
+    <div className="price">
+      <p>{product.price} руб</p>
+      <button onClick={() => bag(product)}>
+        <p>В корзину</p>
+      </button>
+    </div>
+    </div>;
 
 export default Post;

@@ -1,0 +1,31 @@
+.navigation {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    ul {
+        display: flex;
+        li {
+            margin: 0 50px 0 50px;
+            a:hover {
+                border-top: 4px dotted;
+                border-bottom: 4px dotted;
+            }
+            .active {
+                border-top: 4px dotted;
+                border-bottom: 4px dotted;
+            }
+        }
+    }
+    a {
+        font-size: 25px;
+        &:hover {
+            border-top: 4px dotted;
+            border-bottom: 4px dotted;
+        }
+        &.active {
+            border-top: 4px dotted;
+            border-bottom: 4px dotted;
+        }
+    }
+}

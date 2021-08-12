@@ -1,0 +1,15 @@
+.home {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    // margin-top: 120px;
+    img {
+        width: 28%;
+    }
+    h1 {
+        position: absolute;
+        font-size: 100px;
+        width: 1010px;
+        font-weight: bold;
+    }
+}

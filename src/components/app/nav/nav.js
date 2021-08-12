@@ -1,29 +1,36 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 import {
-  Link,
-  Route,
-  Switch,
+  NavLink,
+  // Route,
+  // Switch,
 } from 'react-router-dom';
-import Women from './women/womenSection';
-import Men from './men/menSection';
+import './nav.scss';
 
-const Nav = () => (
+const Nav = () => {
+  const bag = useSelector((state) => state.bag.bag);
+  let sumPrice = 0;
+  bag.forEach((item) => {
+    sumPrice += item.product.price * item.product.quantity;
+  });
+  if (sumPrice === 0) {
+    sumPrice = 'ПУСТА';
+  } else {
+    sumPrice += ' руб';
+  }
+  return (
     <div className="navigation">
-      <nav>
         <ul>
           <li>
-            <Link to="/Women">Женщины</Link>
+            <NavLink to="/Women">женщины</NavLink>
           </li>
           <li>
-            <Link to="/Men">Мужчины</Link>
+            <NavLink to="/Men">мужчины</NavLink>
           </li>
         </ul>
-      </nav>
-      <Switch>
-        <Route component={ Women } path="/Women" />
-        <Route component={ Men } path="/Men" />
-      </Switch>
+        <NavLink to="/Bag">КОРЗИНА<p>{String(sumPrice)}</p></NavLink>
     </div>
-);
+  );
+};
 
 export default Nav;
